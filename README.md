@@ -23,3 +23,16 @@ chmod 600 ~/.ssh/config
 * use "ssh devcloud" to login to the Intel DevCloud:
 
 ![image](https://user-images.githubusercontent.com/6676586/122686092-4a94e800-d1c4-11eb-8ae8-74ea3253ceaa.png)
+
+* Use "lscpu" and "lspci -v | less" to show the CPU and hardware devices of the VM. The host VM does not have GPU and any FPGA devices.
+
+## Step2 Test CPU/GPU Vector-Add sample
+* Download sample code: git clone https://github.com/oneapi-src/oneAPI-samples.git
+* Go to the vector-add sample: cd oneAPI-samples/DirectProgramming/DPC++/DenseLinearAlgebra/vector-add/
+* sd
+```bash
+#!/bin/bash
+source /opt/intel/inteloneapi/setvars.sh
+make clean
+make all
+```
