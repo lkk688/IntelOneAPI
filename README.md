@@ -36,3 +36,19 @@ source /opt/intel/inteloneapi/setvars.sh
 make clean
 make all
 ```
+* Error: run any qsub will have the following error
+```bash
+u71793@login-2:~$ qsub -l nodes=1:gpu:ppn=2 -d . job.sh
+/usr/local/sbin/torque_submitfilter: line 67: echo: write error: No space left on device
+tr: write error: No space left on device
+/usr/local/sbin/torque_submitfilter: line 149: echo: write error: No space left on device
+/usr/local/sbin/torque_submitfilter: line 149: echo: write error: No space left on device
+/usr/local/sbin/torque_submitfilter: line 149: echo: write error: No space left on device
+qsub: submit filter returned an error code, aborting job submission.
+```
+The reason for this error is no space left in the root folder:
+```bash
+u71793@login-2:/$ df .
+Filesystem                    1K-blocks     Used Available Use% Mounted on
+/dev/mapper/login--2--vg-root  24643364 23389416         0 100% /
+```
