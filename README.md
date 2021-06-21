@@ -36,6 +36,7 @@ source /opt/intel/inteloneapi/setvars.sh
 make clean
 make all
 ```
+* Submit job: https://devcloud.intel.com/oneapi/documentation/job-submission/
 * Error: run any qsub will have the following error
 ```bash
 u71793@login-2:~$ qsub -l nodes=1:gpu:ppn=2 -d . job.sh
